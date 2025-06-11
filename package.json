@@ -6,7 +6,8 @@
 		"vite:build": "npm run build --prefix public", 
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
-		"start": "wrangler dev"
+		"start": "wrangler dev",
+		"full:deploy": "npm run vite:build && npm run deploy"
 	},
 	"devDependencies": {
 		"wrangler": "^4.19.1"
