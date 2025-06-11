@@ -3,9 +3,9 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"vite:build": "npm run build --prefix public", 
+		"vite:build": "npm run build --prefix public",
 		"deploy": "wrangler deploy",
-		"dev": "wrangler dev",
+		"dev": "npm run vite:build && wrangler dev",
 		"start": "wrangler dev",
 		"full:deploy": "npm run vite:build && npm run deploy"
 	},
