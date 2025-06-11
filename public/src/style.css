@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #111827;
+    color: #E5E7EB;
+    overflow-x: hidden;
+}
+.hero-bg {
+    background: linear-gradient(135deg, #111827 0%, #1F2937 50%, #374151 100%);
+}
+.section-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.section-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.5rem;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.2);
+}
+.project-card:hover::before {
+    opacity: 1;
+}
+.project-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.project-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+}
+.tech-tag {
+    background-color: #374151;
+    color: #D1D5DB;
+}
+.animated-text {
+    background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: gradient-flow 5s ease infinite;
+    background-size: 200% auto;
+}
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.nav-link {
+        position: relative;
+}
+.nav-link:hover {
+    color: #38bdf8;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #38bdf8;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.hero-heading, .hero-subheading, .hero-button {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+.hero-heading { animation-delay: 0.2s; }
+.hero-subheading { animation-delay: 0.5s; }
+.hero-button { animation-delay: 0.8s; }
+.social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #fff;
+}
+.skill-item {
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+}
+.skill-item:hover {
+    transform: translateY(-8px);
+    color: #fafafa;
+}
+.skill-item img {
+    transition: transform 0.3s ease;
+}
+.skill-item:hover img {
+    transform: scale(1.1);
+}
